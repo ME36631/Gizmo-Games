@@ -3,144 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gizmo Games</title>
-  <style>
-    /* General reset and body styles */
-    body {
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      background-color: #f4f4f4;
-    }
-
-    /* Sidebar container */
-    .sidenav {
-      height: 100vh;
-      width: 250px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: #333;
-      color: #fff;
-      padding-top: 20px;
-      transition: all 0.3s ease;
-    }
-
-    /* Sidebar items */
-    .sidenav a {
-      padding: 12px 20px;
-      text-decoration: none;
-      font-size: 18px;
-      color: white;
-      display: block;
-      transition: 0.3s;
-      border-bottom: 1px solid #444;
-    }
-
-    /* Hover effect */
-    .sidenav a:hover {
-      background-color: #575757;
-    }
-
-    /* Active link */
-    .sidenav a.active {
-      background-color: #4CAF50;
-    }
-
-    /* Menu toggle icon */
-    .sidenav .close-btn {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      font-size: 36px;
-      color: white;
-      cursor: pointer;
-    }
-
-    /* Main content area */
-    .content {
-      margin-left: 260px;
-      padding: 20px;
-      flex: 1;
-      transition: margin-left 0.3s ease;
-    }
-
-    /* Mobile view */
-    @media (max-width: 768px) {
-      .sidenav {
-        width: 200px;
-      }
-      .content {
-        margin-left: 220px;
-      }
-    }
-
-    /* Toggle button */
-    .toggle-btn {
-      display: none;
-      font-size: 30px;
-      color: #333;
-      cursor: pointer;
-      margin: 20px;
-    }
-
-    /* Show the toggle button on small screens */
-    @media (max-width: 768px) {
-      .toggle-btn {
-        display: block;
-      }
-
-      .sidenav {
-        left: -250px;
-      }
-
-      .sidenav.open {
-        left: 0;
-      }
-
-      .content {
-        margin-left: 0;
-      }
-    }
-  </style>
+  <title>User Profile System</title>
+  <link rel="stylesheet" href="/gizmo-games/css/main.css">
 </head>
 <body>
 
-  <!-- Side Navbar -->
-  <div id="sidenav" class="sidenav">
-    <span class="close-btn" onclick="toggleNav()">×</span>
-    <br>
-    <a href="#" class="active">Home</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
+  <div class="profile-bar" id="profile-bar">
+    <img id="profile-pic" class="profile-pic" src="" alt="Profile Picture">
+    <span id="profile-name" class="profile-name">Guest</span>
   </div>
 
-  <!-- Main Content -->
-  <div class="content">
-    <span class="toggle-btn" onclick="toggleNav()">☰</span>
-    <h1>Welcome to My Website</h1>
-    <p>This is some content on the main page.</p>
-    <p>The side navigation menu can be toggled using the "☰" button on mobile.</p>
+  <div class="profile-setup">
+    <h2>Set Your Profile</h2>
+    <input type="text" id="name-input" placeholder="Enter your name">
+    <input type="file" id="file-input" accept="image/*">
+    <button onclick="saveProfile()">Save Profile</button>
   </div>
 
-  <script>
-    // Toggle the side navbar on mobile
-    function toggleNav() {
-      const sidenav = document.getElementById('sidenav');
-      sidenav.classList.toggle('open');
-    }
-
-    // Make the active link change style
-    const links = document.querySelectorAll('.sidenav a');
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        links.forEach(item => item.classList.remove('active'));
-        link.classList.add('active');
-      });
-    });
-  </script>
-
+  <script src="/gizmo-games/js/profile.js"></script>
 </body>
 </html>
